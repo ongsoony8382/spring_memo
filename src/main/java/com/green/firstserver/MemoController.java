@@ -1,5 +1,6 @@
 package com.green.firstserver;
 
+import com.green.firstserver.model.MemoGetOneRes;
 import com.green.firstserver.model.MemoGetRes;
 import com.green.firstserver.model.MemoPostReq;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,12 @@ public class MemoController {
     @GetMapping("/memo")
     public List<MemoGetRes> getMemo(){
         return memoService.selMemoList();
+    }
+
+    @GetMapping("/memo/{id}")
+    public MemoGetOneRes getMemo(@PathVariable int id){
+        System.out.println("getMemo: " + id);
+        return memoService.selMemo(id);
     }
 
 
